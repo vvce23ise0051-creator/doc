@@ -7,12 +7,6 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/vvce23ise0051-creator/doc.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 script {
@@ -29,15 +23,6 @@ pipeline {
                     }
                 }
             }
-        }
-    }
-
-    post {
-        success {
-            echo 'Image successfully built and pushed to Docker Hub'
-        }
-        failure {
-            echo 'Pipeline failed'
         }
     }
 }
